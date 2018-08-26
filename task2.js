@@ -28,7 +28,7 @@ function encode(str) {
       var new_vowel = reverseVowel(char, vowels, map);
       result = result.concat(new_vowel);
     }
-    else { // if char is constant
+    else { // if char is consonant
       var new_pattern = char + "o" + char;
       result = result.concat(new_pattern);
     }
@@ -37,10 +37,10 @@ function encode(str) {
 }
 
 function decode(str) {
-  // first if constant is found, check for pattern & replace pattern with constant
+  // first if consonant is found, check for pattern & replace pattern with consonant
   for (var i = 0; i < str.length; i++) {
     var char = str[i];
-    if (isVowel(char) === false) {  // char is constant
+    if (isVowel(char) === false) {  // char is consonant
       var pattern = char + "o" + char;
       var re = new RegExp(pattern);
       str = str.replace(re, char);
